@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Munch</title>
+    <link rel="icon" type="image/x-icon" href="./FoodMunchAssets/food-munch-img-logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+    html {
+            scroll-behavior: smooth;
+        }
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    .navbar-container{
+      position: sticky;
+      top: 0;
+    }
+    .navbar-collapse{
+      justify-content: flex-end;
+      margin-right: 7rem;
+    }
+    .navbar-brand{
+      margin-left: 6rem;
+    }
+    .nav-link{
+      color: #464444;
+    }
+    .nav-link:hover{
+      color: #000000;
+      font-weight: 500;
+    }
+    .bgimage-top {
+      background-image: url(./FoodMunchAssets/foodmunch-banner-bg.png);
+      height: 100vh;
+      background-size: cover;
+    }
+    .top {
+      color: white;
+      text-align: center;
+      padding-top: 250px;
+      font-size: 1.5rem;
+    }
+    .menu,
+    .order {
+      padding: 10px 20px;
+      margin-right: 20px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+    }
+    .menu {
+      background-color: #d0b200;
+      color: white;
+    }
+    .order {
+      color: #d0b200;
+      background-color: transparent;
+      border: 1px solid #d0b200;
+    }
+    button:active {
+      border: 1px solid white;
+    }
+
+    .bg-whychooseus {
+      background-color: aliceblue;
+
+    }
+    .card-group {
+      display: flex;
+      justify-content: space-evenly;
+    }
+    .whychooseus-card {
+      background-color: white;
+      text-align: center;
+      border-radius: 15px;
+      margin:0 25px;
+      padding: 30px 30px;
+      flex: 1;
+    }
+    .whychooseus{
+      display: flex;
+      padding: 30px 150px;
+      padding-bottom: 50px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; 
+    }    
+    .card p,.food-plate p, .delivery-payment p, .thank-you p{
+      color: gray;
+      font-size: 18px;
+    }
+    .whychooseus-description{      
+      display: flex;
+      flex-direction: column;
+      margin-left: 25px;
+    }
+
+    @media screen and (max-width: 600px) {
+            .whychooseus-card{
+              width: 120%;
+              margin-bottom: 20px;
+            }
+            .card-group{
+              flex-wrap: nowrap;
+            }
+    }
+    @media screen and (max-width: 768px) and (min-width:600px) {
+        .card-group {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          align-items: center;
+        }
+        
+        .whychooseus-card {
+          margin: 20px 60px;
+          width: 120%;
+        }
+        .whychooseus-description {
+          margin: 0px -40px;
+        }
+        .whychooseus{
+          display: flex;
+          flex-direction: column;
+        }
+      }
+      
+    @media screen and (min-width: 768px) and (max-width:996px){
+        
+    .whychooseus-card {
+      background-color: white;
+      width: 100%;
+      text-align: center;
+      border-radius: 15px;
+      flex: 1;
+    }
+    .whychooseus{
+      display: flex;
+      padding: 20px 20px;
+    }
+      }
+
+    
+    .explore{
+      padding: 2rem;
+    }
+    .explore-items{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      justify-content: center;
+      align-items: center;
+    }
+    .items{
+      margin: 2rem;
+      padding: 1rem;
+      border-radius: 20px;
+      box-shadow: 0px 0px 10px 0px #838181; 
+    }
+    .items p{
+      font-size: 1.3rem;
+    }
+    .items img{
+      width: 250px;
+      height: 250px;
+      border-radius: 20px;
+      display: inline;
+      text-align: center;
+    }
+    .items a{
+      color: #d0b200;
+      text-decoration: none;
+    }
+    .items a:hover{
+      text-decoration: underline;
+      color: blue;
+    }
+
+    @media screen and (min-width:756px) and (max-width:1200px){
+
+    .items img{
+      width: 200px;
+      height: 200px;
+    }
+    }
+
+    @media screen and (max-width:768px) {
+      .explore-items {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .items {
+       margin: 1rem;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+        .card-group {
+          display: flex;
+          flex-direction: column;
+          box-sizing: border-box;
+          align-items: center;
+          justify-content: center;
+        }
+        .card {
+          margin: 20px 60px;
+          width: 150%;
+        }
+        .whychooseus-description {
+          margin:10px -90px;
+        }
+        .whychooseus{
+          display: flex;
+          flex-direction: column;
+        }
+
+
+      .explore-items{
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .food-plate{
+      background-color: aliceblue;
+      display: flex;
+      padding-top: 50px;
+      padding-left: 300px;
+    }
+    .food-plate-description{
+      padding-left: 100px;
+      padding-right: 350px;
+    }
+    .food-plate-description button, .delivery-payment-description button, .thank-you button{
+      color: white;
+      font-size: 1.1rem;
+      background: linear-gradient(to bottom, #ffd903, #9d8707);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+    }
+    .food-plate-description button:active, .delivery-payment-description button:active, .thank-you button:active{
+      border: 1px solid black;
+    }
+    .delivery-payment{
+      padding: 50px 0px; 
+      padding-left: 200px;
+      padding-right: 300px;
+      display: flex;
+    }
+    .payment-cards img{
+      padding-right: 30px;
+    }
+    .thank-you-bg{
+      background: linear-gradient(to bottom, #f9e88b, #f0efe9, #f9e88b);
+    }
+    .thank-you{
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      padding-right: 300px;
+      padding-left: 100px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+    .thank-you img{
+      height: 300px;
+    }
+    .follow-us{
+      text-align: center;
+      padding: 50px 0;
+    }
+    .icon-container{
+      display: flex;
+      justify-content: center;
+    }
+    .follow-us-icons{
+      height: 90px;
+      width: 90px;
+      border-radius: 50%;
+      background-color: #faf7e8;
+      margin-top: 20px;
+      margin-right: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+    .follow-us-icons i{
+      font-size: 2.5rem;
+      color: #d0b200;
+    }
+    .footer{
+      background-color: #0d2436;
+      color: #959ead;
+      text-align: center;
+      padding: 70px 0;
+    }
+    .go-top{
+      height: 90px;
+      width: 90px;
+      border-radius: 50%;
+      background: linear-gradient(#d0b200,#f0efe9,#d0b200);
+      display: flex;
+      box-shadow: 1px 1px 20px 0px gold ;  
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+    }
+    .go-top-icon{
+      position: absolute;
+      bottom: -12px;
+      right: 5px;
+      font-size: 5rem;
+      color: #000000;
+    }
+  </style>
+  </head>
+  <body>
+    <span id="go-top"></span>
+    <div class="go-top">
+      <a href="#go-top">
+        <div class="go-top-icon">
+          <i class="bi bi-arrow-up-circle-fill"></i>
+        </div>
+        </a>
+      </div>
+    <div class="navbar-container">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./Task15 - Food Munch.html">
+          <img
+        src="./FoodMunchAssets/food-munch-img-logo.png"
+        alt="logo" height="70"
+        class="nav-logo"
+        />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#why-choose-us">Why Choose Us?</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#explore-container">Explore Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#delivery-payment">Delivery & Payment</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#follow-us">Follow Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+<div class="main-container">
+    <div class="bgimage-top" >
+      <div class="top">
+        <h1>Get Delicious Food Anytime</h1><br>
+        <p>Eat Smart & Healthy</p><br>
+        <button class="menu">View Menu</button
+        ><button class="order">Order Now</button>
+      </div>
+    </div><div class="bg-whychooseus">
+      <div class="whychooseus" id="why-choose-us">
+        <div class="whychooseus2">
+          <div class="whychooseus-description">
+            <h1>Why Choose Us?</h1>
+            <p style="color: gray; margin: 15px 0">
+              We use both original recipes and classic versions of famous food
+              items.
+            </p>
+          </div>
+          <div class="card-group">
+            <div class="card1 whychooseus-card">
+              <img src="./FoodMunchAssets/food-serve.png" alt="Food Service" />
+              <h2>Food Service</h2>
+              <br />
+              <p>
+                Experience fine dining at the comfort of your home. All our orders
+                are carefully packed and arranged to give you the nothing less
+                than perfect.
+              </p>
+            </div>
+            <div class="card2 whychooseus-card">
+              <img src="./FoodMunchAssets/fruits-img.png" alt="Food Service" />
+              <h2>Fresh Food</h2>
+              <br />
+              <p>
+                The Fresh Food group provides fresh-cut fruits and vegetables
+                directly picked from our partner farms and farm houses so that you
+                always get them tree to plate.
+              </p>
+            </div>
+            <div class="card3 whychooseus-card">
+              <img src="./FoodMunchAssets/offers-img.png" alt="Food Service" />
+              <h2>Best Offers</h2>
+              <br />
+              <p>
+                Food Coupons & Offers upto <b>50% OFF</b> and Exclusive Promo
+                Codes on All Online Food Orders.
+              </p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="explore" id="explore-container">
+      <h1>Explore Menu</h1>
+      <div class="explore-items">
+        <div class="items">
+          <img src="./FoodMunchAssets/em-ginger-fried-img.png" alt="non-veg starters"><br><br>
+          <p>Non-Veg Starters</p><br>
+          <a href="Task15 - Food Munch.html">View All &#x2192
+          </a><br>
+        </div>
+        <div class="items">
+          <img src="./FoodMunchAssets/em-veg-starters-img.png" alt="veg starters" ><br><br>
+          <p>Veg Starters</p><br>
+          <a href="Task15 - Food Munch.html">View All &#x2192
+          </a><br>
+        </div>
+        <div class="items">
+          <img src="./FoodMunchAssets/em-soup-img.png" alt="soups"><br><br>
+          <p>Soups</p><br>
+          <a href="Task15 - Food Munch.html">View All &#x2192
+          </a><br>
+        </div>
+        <div class="items">
+          <img src="./FoodMunchAssets/em-grilled-seafood-img.png" alt="fish & sea food"><br><br>
+          <p>Fish & Sea Food</p><br>
+          <a href="Task15 - Food Munch.html">View All &#x2192
+          </a><br>
+        </div>
+        <div class="items">
+          <img src="./FoodMunchAssets/em-hyderabadi-biryani-img.png" alt="main course"><br><br>
+          <p>Main Course</p><br>
+          <a href="Task15 - Food Munch.html">View All &#x2192
+          </a><br>
+        </div>
+        <div class="items">
+          <img src="./FoodMunchAssets/em-mushroom-noodles-img.png" alt="noodles"><br><br>
+          <p>Noodles</p><br>
+          <a href="Task15 - Food Munch.html">View All &#x2192
+          </a><br>
+        </div>
+        <div class="items">
+          <img src="./FoodMunchAssets/em-gluten-img.png" alt="salads"><br><br>
+          <p>Salads</p><br>
+          <a href="Task15 - Food Munch.html">View All &#x2192
+          </a><br>
+        </div>
+        <div class="items">
+          <img src="./FoodMunchAssets/em-coffee-bourbon-img.png" alt="desserts"><br><br>
+          <p>Desserts</p><br>
+          <a href="Task15 - Food Munch.html">View All &#x2192
+          </a><br>
+        </div>
+      </div>
+    </div>
+    <div class="food-plate">
+      <img src="./FoodMunchAssets/healthy-food-plate-img.png" alt="food-plate" height="250">
+      <div class="food-plate-description">
+        <h1>Fresh, Healthy, Organic, Delicious Fruits</h1><br>
+        <p>Say no to harmful chemicals and go fully organic with our range of fresh fruits and veggies. Pamper your body and your senses with the true and unadulterated gifts from mother nature. with the true and unadulterated gifts from mother nature.
+        </p><br>
+        <button>Watch Video</button>
+      </div>
+    </div>
+    <div class="delivery-payment" id="delivery-payment">
+      <div class="delivery-payment-description">
+        <h1>Delivery and Payment</h1><br>
+        <p>Enjoy hassle-free payment with the plenitude of payment options available for you. Get live tracking and locate your food on a live map. It's quite a sight to see your food arrive to your door. Plus, you get a 5% discount on every order every time you pay online.
+        </p><br>
+        <button>Order Now</button><br><br>
+        <div class="payment-cards">
+          <img src="./FoodMunchAssets/visa-card-img.png" alt="visa" height="50px">
+          <img src="./FoodMunchAssets/master-card-img.png" alt="master-card"  height="50px">
+          <img src="./FoodMunchAssets/paypal-card-img.png" alt="paypal"  height="50px">
+          <img src="./FoodMunchAssets/american-express-img.png" alt="american-express"  height="50px">
+        </div>
+        </div>
+        <img src="./FoodMunchAssets/delivery-payment-section-img.png" alt="delivery-payment-section-img" height="250">
+    </div>
+    <div class="thank-you-bg">
+      <div class="thank-you">
+        <div>
+          <h1>Thank you for being a valuable customer to us.
+          </h1><br>
+          <p>We have a surprise gift for you</p><br>
+          <button>Redeem Gift</button>
+        </div>
+          <img src="./FoodMunchAssets/thanking-customers-section-img.png" alt="gift-box">
+      </div>
+    </div>
+    <div class="follow-us" id="follow-us">
+      <h1>Follow Us</h1>
+      <div class="icon-container">
+        <div class="twitter follow-us-icons">
+          <i class="bi bi-twitter"></i>
+        </div>
+        <div class="instagram follow-us-icons">
+          <i class="bi bi-instagram"></i>
+        </div>
+        <div class="facebook follow-us-icons">
+          <i class="bi bi-facebook"></i>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <img src="./FoodMunchAssets/food-munch-img-footer.png" alt="logo" height="70"><br><br>
+      <h3>orderfood@foodmunch.com</h3><br>
+      <p>123 Ayur Vigyan Nagar, New Delhi, India.</p>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
